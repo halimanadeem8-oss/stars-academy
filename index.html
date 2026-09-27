@@ -1,0 +1,2235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stars Academy | Shalimar Branch</title>
+
+    <style>
+
+        /* =========================
+           GENERAL
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f9fc;
+            color: #1c2b39;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           TOP BAR
+        ========================== */
+
+        .topbar {
+            background: #071b33;
+            color: white;
+            padding: 9px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .topbar span {
+            margin-right: 20px;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        nav {
+            background: white;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-symbol {
+            width: 48px;
+            height: 48px;
+            background: #f4b400;
+            color: #071b33;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .logo h2 {
+            color: #071b33;
+            font-size: 21px;
+        }
+
+        .logo small {
+            display: block;
+            color: #777;
+            font-size: 11px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: #1c2b39;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d99b00;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 650px;
+            background:
+                linear-gradient(rgba(4,22,43,0.88), rgba(4,22,43,0.88)),
+                linear-gradient(135deg, #123b63, #071b33);
+
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .hero-tag {
+            color: #f4b400;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #f4b400;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #e1e8ef;
+            max-width: 650px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 25px;
+            border-radius: 6px;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .primary-btn {
+            background: #f4b400;
+            color: #071b33;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            background: #ffc928;
+        }
+
+        .outline-btn {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .outline-btn:hover {
+            background: white;
+            color: #071b33;
+        }
+
+
+        /* =========================
+           QUICK INFO
+        ========================== */
+
+        .quick-info {
+            background: white;
+            margin-top: -45px;
+            position: relative;
+            z-index: 5;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            overflow: hidden;
+        }
+
+        .quick-card {
+            padding: 25px;
+            text-align: center;
+            border-right: 1px solid #eee;
+        }
+
+        .quick-card:last-child {
+            border-right: none;
+        }
+
+        .quick-card .icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .quick-card h3 {
+            font-size: 16px;
+            color: #071b33;
+        }
+
+        .quick-card p {
+            color: #777;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================== */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #d99b00;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #071b33;
+            margin-top: 8px;
+        }
+
+        .section-title p {
+            color: #687583;
+            max-width: 650px;
+            margin: 10px auto;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .placeholder {
+            min-height: 360px;
+            background: linear-gradient(135deg, #e7edf4, #d5dee9);
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #718096;
+            font-weight: bold;
+            border: 2px dashed #aab7c5;
+        }
+
+        .about-text h2 {
+            color: #071b33;
+            font-size: 35px;
+            margin-bottom: 18px;
+        }
+
+        .about-text p {
+            color: #5e6b78;
+            margin-bottom: 15px;
+        }
+
+        .check-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .check-list li {
+            margin: 12px 0;
+            font-weight: 600;
+        }
+
+        .check-list li::before {
+            content: "✓";
+            color: #d99b00;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           PRINCIPAL
+        ========================== */
+
+        .principal {
+            background: #071b33;
+            color: white;
+        }
+
+        .principal-grid {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .principal .placeholder {
+            min-height: 400px;
+            background: #102d4c;
+            border-color: #355473;
+            color: #aabccc;
+        }
+
+        .principal-text .label {
+            color: #f4b400;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .principal-text h2 {
+            font-size: 42px;
+            margin: 8px 0 20px;
+        }
+
+        .principal-text p {
+            color: #d4dce5;
+            margin-bottom: 18px;
+            font-size: 16px;
+        }
+
+        .signature {
+            margin-top: 25px;
+            color: #f4b400;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+
+        /* =========================
+           PROGRAMS
+        ========================== */
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .program-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            transition: 0.3s;
+            border-top: 4px solid #f4b400;
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .program-icon {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .program-card h3 {
+            color: #071b33;
+            margin-bottom: 10px;
+        }
+
+        .program-card p {
+            color: #687583;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           WHY US
+        ========================== */
+
+        .why-section {
+            background: #eef3f8;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .why-card {
+            background: white;
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+        }
+
+        .why-card .big-icon {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .why-card h3 {
+            color: #071b33;
+            margin-bottom: 8px;
+        }
+
+        .why-card p {
+            color: #718096;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           FACULTY
+        ========================== */
+
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .teacher-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+            text-align: center;
+        }
+
+        .teacher-photo {
+            height: 230px;
+            background: #e5ebf1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #718096;
+            font-size: 14px;
+        }
+
+        .teacher-info {
+            padding: 20px;
+        }
+
+        .teacher-info h3 {
+            color: #071b33;
+        }
+
+        .teacher-info p {
+            color: #d99b00;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           ADMISSIONS
+        ========================== */
+
+        .admission-section {
+            background: linear-gradient(135deg, #071b33, #123b63);
+            color: white;
+        }
+
+        .admission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .admission-text h2 {
+            font-size: 40px;
+            margin-bottom: 18px;
+        }
+
+        .admission-text p {
+            color: #d4dce5;
+            margin-bottom: 20px;
+        }
+
+        .admission-steps {
+            list-style: none;
+        }
+
+        .admission-steps li {
+            margin: 15px 0;
+            color: #e2e9f0;
+        }
+
+        .admission-steps strong {
+            color: #f4b400;
+        }
+
+        .form-box {
+            background: white;
+            color: #1c2b39;
+            padding: 35px;
+            border-radius: 15px;
+        }
+
+        .form-box h3 {
+            margin-bottom: 20px;
+            color: #071b33;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d5dce3;
+            border-radius: 5px;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            height: 90px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: #f4b400;
+            color: #071b33;
+            border: none;
+            padding: 13px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           ACHIEVEMENTS
+        ========================== */
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .achievement-card {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .achievement-card .number {
+            font-size: 38px;
+            font-weight: bold;
+            color: #d99b00;
+        }
+
+        .achievement-card h3 {
+            color: #071b33;
+        }
+
+
+        /* =========================
+           STUDENT LIFE
+        ========================== */
+
+        .life-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .life-card {
+            min-height: 220px;
+            border-radius: 12px;
+            background: #dfe7ef;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            color: #071b33;
+            font-weight: bold;
+            font-size: 20px;
+            border: 2px dashed #aab7c5;
+        }
+
+
+        /* =========================
+           ANNOUNCEMENTS
+        ========================== */
+
+        .announcement-section {
+            background: #eef3f8;
+        }
+
+        .announcement-list {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .announcement {
+            background: white;
+            padding: 20px 25px;
+            margin-bottom: 15px;
+            border-left: 5px solid #f4b400;
+            border-radius: 7px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .announcement h3 {
+            color: #071b33;
+        }
+
+        .announcement p {
+            color: #718096;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           PARENTS
+        ========================== */
+
+        .parent-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .parent-card {
+            padding: 30px;
+            background: white;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            border-radius: 12px;
+        }
+
+        .parent-card h3 {
+            color: #071b33;
+            margin-bottom: 10px;
+        }
+
+        .parent-card p {
+            color: #718096;
+        }
+
+
+        /* =========================
+           GALLERY
+        ========================== */
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            height: 190px;
+            background: #dfe7ef;
+            border-radius: 10px;
+            border: 2px dashed #aab7c5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #718096;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-section {
+            background: #071b33;
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            margin: 20px 0;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: #f4b400;
+            margin-bottom: 3px;
+        }
+
+        .contact-item span {
+            color: #d4dce5;
+        }
+
+        .map-placeholder {
+            min-height: 350px;
+            background: #102d4c;
+            border: 2px dashed #46637f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            color: #b5c3d0;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #041222;
+            color: white;
+            padding: 45px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        footer h3 {
+            color: #f4b400;
+            margin-bottom: 12px;
+        }
+
+        footer p,
+        footer li {
+            color: #9cabb9;
+            font-size: 14px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin: 7px 0;
+        }
+
+        .copyright {
+            border-top: 1px solid #1c3044;
+            padding-top: 20px;
+            text-align: center;
+            color: #7f8d9a;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           WHATSAPP BUTTON
+        ========================== */
+
+        .whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 999;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media(max-width: 900px) {
+
+            .nav-links {
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+                display: none;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .quick-info {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid,
+            .principal-grid,
+            .admission-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .program-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .faculty-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .why-grid,
+            .achievement-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media(max-width: 600px) {
+
+            .topbar {
+                display: none;
+            }
+
+            nav {
+                padding: 0 4%;
+            }
+
+            .hero {
+                min-height: 580px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .quick-info {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .program-grid,
+            .faculty-grid,
+            .why-grid,
+            .achievement-grid,
+            .life-grid,
+            .parent-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .principal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .principal-text h2 {
+                font-size: 32px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     TOP BAR
+========================= -->
+
+<div class="topbar">
+    <div>
+        <span>📍 Shalimar Branch</span>
+        <span>📞 +92 XXX XXXXXXX</span>
+    </div>
+
+    <div>
+        <span>✉️ info@starsacademy.edu</span>
+    </div>
+</div>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+    <div class="logo">
+
+        <div class="logo-symbol">
+            ★
+        </div>
+
+        <div>
+            <h2>Stars Academy</h2>
+            <small>Shalimar Branch</small>
+        </div>
+
+    </div>
+
+
+    <ul class="nav-links" id="navLinks">
+
+        <li><a href="#home">Home</a></li>
+
+        <li><a href="#about">About</a></li>
+
+        <li><a href="#programs">Programs</a></li>
+
+        <li><a href="#faculty">Faculty</a></li>
+
+        <li><a href="#admissions">Admissions</a></li>
+
+        <li><a href="#achievements">Achievements</a></li>
+
+        <li><a href="#gallery">Gallery</a></li>
+
+        <li><a href="#contact">Contact</a></li>
+
+    </ul>
+
+
+    <div class="menu-btn" onclick="toggleMenu()">
+        ☰
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="hero-tag">
+                Excellence • Knowledge • Character
+            </div>
+
+            <h1>
+                Welcome to
+                <span>Stars Academy</span>
+            </h1>
+
+            <p>
+                Shalimar Branch — inspiring students to learn,
+                grow, lead and achieve their dreams through
+                quality education and strong values.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#admissions" class="btn primary-btn">
+                    Apply for Admission
+                </a>
+
+                <a href="#about" class="btn outline-btn">
+                    Discover Our Academy
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     QUICK INFORMATION
+========================= -->
+
+<div class="container">
+
+    <div class="quick-info">
+
+        <div class="quick-card">
+            <div class="icon">🎓</div>
+            <h3>Quality Education</h3>
+            <p>Focused learning environment</p>
+        </div>
+
+        <div class="quick-card">
+            <div class="icon">👩‍🏫</div>
+            <h3>Expert Teachers</h3>
+            <p>Dedicated faculty members</p>
+        </div>
+
+        <div class="quick-card">
+            <div class="icon">🏆</div>
+            <h3>Student Success</h3>
+            <p>Encouraging achievement</p>
+        </div>
+
+        <div class="quick-card">
+            <div class="icon">🌟</div>
+            <h3>Bright Future</h3>
+            <p>Building tomorrow's leaders</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Who We Are</span>
+
+            <h2>About Stars Academy</h2>
+
+            <p>
+                A place where education meets character,
+                confidence and ambition.
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="placeholder">
+                📷 Academy / Campus Photo
+            </div>
+
+
+            <div class="about-text">
+
+                <h2>Learning Today. Leading Tomorrow.</h2>
+
+                <p>
+                    Stars Academy – Shalimar Branch is committed
+                    to creating a positive and inspiring environment
+                    where students can discover their abilities and
+                    work towards their goals.
+                </p>
+
+                <p>
+                    Our focus goes beyond textbooks. We encourage
+                    discipline, confidence, creativity, critical
+                    thinking and respect.
+                </p>
+
+
+                <ul class="check-list">
+
+                    <li>Student-focused learning</li>
+
+                    <li>Strong academic foundation</li>
+
+                    <li>Character and discipline</li>
+
+                    <li>Encouragement for every student</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PRINCIPAL
+========================= -->
+
+<section class="principal" id="principal">
+
+    <div class="container">
+
+        <div class="principal-grid">
+
+            <div class="placeholder">
+                
+    <img src="principal.jpg" alt="Principal Halima">
+
+            </div>
+
+
+            <div class="principal-text">
+
+                <div class="label">
+                    Principal's Message
+                </div>
+
+                <h2>
+                    A Message from<br>
+                    Principal Halima
+                </h2>
+
+                <p>
+                    Welcome to Stars Academy – Shalimar Branch.
+                </p>
+
+                <p>
+                    Education is not simply about achieving good
+                    marks. It is about developing confidence,
+                    discipline, curiosity and the courage to face
+                    challenges.
+                </p>
+
+                <p>
+                    At Stars Academy, we aim to provide our students
+                    with an environment where they feel supported,
+                    respected and motivated to reach their potential.
+                </p>
+
+                <p>
+                    Together, let us help our students become
+                    knowledgeable, responsible and successful
+                    members of society.
+                </p>
+
+                <div class="signature">
+                    — Principal Halima
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PROGRAMS
+========================= -->
+
+<section id="programs">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Academic Programs</span>
+
+            <h2>Our Programs</h2>
+
+            <p>
+                Learning opportunities designed to support
+                students at every stage.
+            </p>
+
+        </div>
+
+
+        <div class="program-grid">
+
+
+            <div class="program-card">
+
+                <div class="program-icon">📚</div>
+
+                <h3>Primary Classes</h3>
+
+                <p>
+                    Building strong foundations in core subjects
+                    while developing curiosity and confidence.
+                </p>
+
+            </div>
+
+
+            <div class="program-card">
+
+                <div class="program-icon">🔬</div>
+
+                <h3>Middle Classes</h3>
+
+                <p>
+                    Developing deeper understanding, problem-solving
+                    skills and independent learning.
+                </p>
+
+            </div>
+
+
+            <div class="program-card">
+
+                <div class="program-icon">🎓</div>
+
+                <h3>Matric Classes</h3>
+
+                <p>
+                    Focused academic preparation for board
+                    examinations and future studies.
+                </p>
+
+            </div>
+
+
+            <div class="program-card">
+
+                <div class="program-icon">🧪</div>
+
+                <h3>Science Program</h3>
+
+                <p>
+                    Strengthening concepts in Physics, Chemistry,
+                    Biology and Mathematics.
+                </p>
+
+            </div>
+
+
+            <div class="program-card">
+
+                <div class="program-icon">📝</div>
+
+                <h3>Exam Preparation</h3>
+
+                <p>
+                    Practice, revision and assessment designed
+                    to help students prepare confidently.
+                </p>
+
+            </div>
+
+
+            <div class="program-card">
+
+                <div class="program-icon">💡</div>
+
+                <h3>Skill Development</h3>
+
+                <p>
+                    Encouraging communication, creativity,
+                    technology and critical thinking.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     WHY CHOOSE US
+========================= -->
+
+<section class="why-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Why Stars Academy?</span>
+
+            <h2>What Makes Us Different</h2>
+
+        </div>
+
+
+        <div class="why-grid">
+
+            <div class="why-card">
+                <div class="big-icon">🎯</div>
+                <h3>Focused Learning</h3>
+                <p>Helping students stay focused on their goals.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="big-icon">❤️</div>
+                <h3>Student Care</h3>
+                <p>A supportive and respectful environment.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="big-icon">🧠</div>
+                <h3>Concept Building</h3>
+                <p>Understanding concepts instead of memorizing only.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="big-icon">🚀</div>
+                <h3>Future Ready</h3>
+                <p>Preparing students for future opportunities.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FACULTY
+========================= -->
+
+<section id="faculty">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Our Team</span>
+
+            <h2>Meet Our Faculty</h2>
+
+            <p>
+                Dedicated educators helping students reach
+                their potential.
+            </p>
+
+        </div>
+
+
+        <div class="faculty-grid">
+
+
+            <div class="teacher-card">
+
+                <div class="teacher-photo">
+                    📷 Teacher Photo
+                </div>
+
+                <div class="teacher-info">
+
+                    <h3>Teacher Name</h3>
+
+                    <p>Mathematics</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="teacher-card">
+
+                <div class="teacher-photo">
+                    📷 Teacher Photo
+                </div>
+
+                <div class="teacher-info">
+
+                    <h3>Teacher Name</h3>
+
+                    <p>Physics</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="teacher-card">
+
+                <div class="teacher-photo">
+                    📷 Teacher Photo
+                </div>
+
+                <div class="teacher-info">
+
+                    <h3>Teacher Name</h3>
+
+                    <p>Chemistry</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="teacher-card">
+
+                <div class="teacher-photo">
+                    📷 Teacher Photo
+                </div>
+
+                <div class="teacher-info">
+
+                    <h3>Teacher Name</h3>
+
+                    <p>English</p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ADMISSIONS
+========================= -->
+
+<section class="admission-section" id="admissions">
+
+    <div class="container">
+
+        <div class="admission-grid">
+
+
+            <div class="admission-text">
+
+                <h2>
+                    Begin Your Journey
+                    With Stars Academy
+                </h2>
+
+                <p>
+                    Take the first step towards a brighter
+                    academic future.
+                </p>
+
+
+                <ul class="admission-steps">
+
+                    <li>
+                        <strong>01</strong>
+                        Submit your admission inquiry.
+                    </li>
+
+                    <li>
+                        <strong>02</strong>
+                        Visit the academy for further details.
+                    </li>
+
+                    <li>
+                        <strong>03</strong>
+                        Complete the admission process.
+                    </li>
+
+                    <li>
+                        <strong>04</strong>
+                        Begin your learning journey.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="form-box">
+
+                <h3>Admission Inquiry</h3>
+
+                <form onsubmit="submitForm(event)">
+
+                    <div class="form-group">
+
+                        <label>Student Name</label>
+
+                        <input
+                            type="text"
+                            placeholder="Enter student name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Parent / Guardian Name</label>
+
+                        <input
+                            type="text"
+                            placeholder="Enter parent name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Class</label>
+
+                        <select required>
+
+                            <option value="">
+                                Select Class
+                            </option>
+
+                            <option>Playgroup</option>
+
+                            <option>Primary</option>
+
+                            <option>Middle</option>
+
+                            <option>9th</option>
+
+                            <option>10th</option>
+
+                            <option>Other</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Phone Number</label>
+
+                        <input
+                            type="tel"
+                            placeholder="03XX XXXXXXX"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Message</label>
+
+                        <textarea
+                            placeholder="Write your message..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <button class="submit-btn">
+                        Submit Inquiry
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ACHIEVEMENTS
+========================= -->
+
+<section id="achievements">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Our Achievements</span>
+
+            <h2>Striving for Excellence</h2>
+
+        </div>
+
+
+        <div class="achievement-grid">
+
+            <div class="achievement-card">
+
+                <div class="number">100%</div>
+
+                <h3>Dedication</h3>
+
+                <p>Committed to student growth.</p>
+
+            </div>
+
+
+            <div class="achievement-card">
+
+                <div class="number">★</div>
+
+                <h3>Academic Focus</h3>
+
+                <p>Strong emphasis on learning.</p>
+
+            </div>
+
+
+            <div class="achievement-card">
+
+                <div class="number">∞</div>
+
+                <h3>Opportunities</h3>
+
+                <p>Encouraging students to dream big.</p>
+
+            </div>
+
+
+            <div class="achievement-card">
+
+                <div class="number">1</div>
+
+                <h3>Shared Vision</h3>
+
+                <p>Students, teachers and parents together.</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     STUDENT LIFE
+========================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Beyond The Classroom</span>
+
+            <h2>Student Life</h2>
+
+            <p>
+                Learning becomes meaningful through experiences.
+            </p>
+
+        </div>
+
+
+        <div class="life-grid">
+
+            <div class="life-card">
+                🏅 Academic Competitions
+            </div>
+
+            <div class="life-card">
+                🎨 Creative Activities
+            </div>
+
+            <div class="life-card">
+                🏏 Sports & Activities
+            </div>
+
+            <div class="life-card">
+                🎤 Events & Celebrations
+            </div>
+
+            <div class="life-card">
+                🔬 Science Activities
+            </div>
+
+            <div class="life-card">
+                🚌 Educational Trips
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ANNOUNCEMENTS
+========================= -->
+
+<section class="announcement-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Latest Updates</span>
+
+            <h2>Announcements</h2>
+
+        </div>
+
+
+        <div class="announcement-list">
+
+
+            <div class="announcement">
+
+                <h3>📢 Admissions Open</h3>
+
+                <p>
+                    Admissions for the new academic session
+                    are now open.
+                </p>
+
+            </div>
+
+
+            <div class="announcement">
+
+                <h3>📅 Parent-Teacher Meeting</h3>
+
+                <p>
+                    Meeting date and schedule will be announced
+                    by the administration.
+                </p>
+
+            </div>
+
+
+            <div class="announcement">
+
+                <h3>📝 Examination Schedule</h3>
+
+                <p>
+                    Students will be informed about upcoming
+                    examination dates.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PARENTS CORNER
+========================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>For Parents</span>
+
+            <h2>Parents' Corner</h2>
+
+        </div>
+
+
+        <div class="parent-grid">
+
+
+            <div class="parent-card">
+
+                <h3>📢 Notices</h3>
+
+                <p>
+                    Stay updated with important academy
+                    announcements and notices.
+                </p>
+
+            </div>
+
+
+            <div class="parent-card">
+
+                <h3>📅 Important Dates</h3>
+
+                <p>
+                    Keep track of examinations, meetings,
+                    holidays and events.
+                </p>
+
+            </div>
+
+
+            <div class="parent-card">
+
+                <h3>💬 Parent Communication</h3>
+
+                <p>
+                    Stay connected with teachers and
+                    academy administration.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     GALLERY
+========================= -->
+
+<section id="gallery" class="why-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Our Memories</span>
+
+            <h2>Academy Gallery</h2>
+
+            <p>
+                Photos from our campus, classrooms and activities.
+            </p>
+
+        </div>
+
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+                📷 Gallery Photo 1
+            </div>
+
+            <div class="gallery-item">
+                📷 Gallery Photo 2
+            </div>
+
+            <div class="gallery-item">
+                📷 Gallery Photo 3
+            </div>
+
+            <div class="gallery-item">
+                📷 Gallery Photo 4
+            </div>
+
+            <div class="gallery-item">
+                📷 Gallery Photo 5
+            </div>
+
+            <div class="gallery-item">
+                📷 Gallery Photo 6
+            </div>
+
+            <div class="gallery-item">
+                📷 Gallery Photo 7
+            </div>
+
+            <div class="gallery-item">
+                📷 Gallery Photo 8
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact-section" id="contact">
+
+    <div class="container">
+
+        <div class="contact-grid">
+
+
+            <div class="contact-info">
+
+                <h2>
+                    Get In Touch
+                </h2>
+
+                <p>
+                    We would be happy to hear from parents,
+                    students and visitors.
+                </p>
+
+
+                <div class="contact-item">
+
+                    <strong>📍 Address</strong>
+
+                    <span>
+                        Stars Academy – Shalimar Branch
+                        <br>
+                        Shalimar, Lahore, Pakistan
+                    </span>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <strong>📞 Phone</strong>
+
+                    <span>
+                        +92 XXX XXXXXXX
+                    </span>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <strong>✉️ Email</strong>
+
+                    <span>
+                        info@starsacademy.edu
+                    </span>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <strong>🕐 Office Hours</strong>
+
+                    <span>
+                        Monday – Saturday
+                        <br>
+                        8:00 AM – 4:00 PM
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="map-placeholder">
+
+                📍 Google Maps Location
+                <br>
+                Add your actual map here later.
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <div class="logo">
+
+                    <div class="logo-symbol">
+                        ★
+                    </div>
+
+                    <div>
+                        <h2 style="color:white;">
+                            Stars Academy
+                        </h2>
+
+                        <small style="color:#9cabb9;">
+                            Shalimar Branch
+                        </small>
+                    </div>
+
+                </div>
+
+                <br>
+
+                <p>
+                    Empowering students through knowledge,
+                    character and confidence.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Quick Links</h3>
+
+                <ul>
+
+                    <li><a href="#home" style="color:#9cabb9;">Home</a></li>
+
+                    <li><a href="#about" style="color:#9cabb9;">About</a></li>
+
+                    <li><a href="#programs" style="color:#9cabb9;">Programs</a></li>
+
+                    <li><a href="#admissions" style="color:#9cabb9;">Admissions</a></li>
+
+                    <li><a href="#contact" style="color:#9cabb9;">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3>Academy</h3>
+
+                <ul>
+
+                    <li>Student Life</li>
+
+                    <li>Faculty</li>
+
+                    <li>Achievements</li>
+
+                    <li>Gallery</li>
+
+                    <li>Parents' Corner</li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Stars Academy – Shalimar Branch.
+            All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================
+     WHATSAPP BUTTON
+========================= -->
+
+<a
+    class="whatsapp"
+    href="#contact"
+    title="Contact Stars Academy"
+>
+    💬
+</a>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    function toggleMenu() {
+
+        document
+            .getElementById("navLinks")
+            .classList
+            .toggle("active");
+
+    }
+
+
+    function submitForm(event) {
+
+        event.preventDefault();
+
+        alert(
+            "Thank you for contacting Stars Academy! " +
+            "Our administration will contact you soon."
+        );
+
+    }
+
+
+    // Close mobile menu after clicking a link
+
+    document.querySelectorAll(".nav-links a").forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+            document
+                .getElementById("navLinks")
+                .classList
+                .remove("active");
+
+        });
+
+    });
+
+</script>
+
+
+</body>
+</html>
